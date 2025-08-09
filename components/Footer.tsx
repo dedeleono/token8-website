@@ -87,6 +87,7 @@ export default function Footer(){
             <div className="bg-[#33604C] px-6 py-4 rounded-lg flex flex-col items-center gap-3">
               {/* Social Icons */}
               <div className="flex gap-3">
+                <Link href="https://x.com/token8_">
                 <div className="bg-[#9D4F3B] p-2 rounded-md">
                   <Image
                     src="/img/X.svg"
@@ -96,6 +97,7 @@ export default function Footer(){
                     className="h-4 w-auto"
                   />
                 </div>
+                </Link>
               </div>
 
               {/* Copyright */}

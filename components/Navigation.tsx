@@ -117,13 +117,15 @@ export function Navigation() {
           </nav>
 
           <div className="flex items-center">
-            <Image
-              src="/img/X.svg"
-              alt="X"
-              width={80}
-              height={24}
-              className="h-3 w-auto"
-            />
+            <Link href="https://x.com/token8_">
+              <Image
+                src="/img/X.svg"
+                alt="X"
+                width={80}
+                height={24}
+                className="h-3 w-auto"
+              />
+            </Link>
           </div>
         </div>
       </div>
