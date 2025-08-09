@@ -6,7 +6,7 @@ interface FooterDividerProps {
 
 export default function FooterDivider({ className }: FooterDividerProps) {
   return (
-    <div className={`relative overflow-hidden ${className || ''}`}>
+    <div className={`relative overflow-hidden ${className || ''} `}>
       <Image
         src="/img/middle.svg"
         alt="footer divider"
