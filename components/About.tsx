@@ -26,7 +26,7 @@ export default function AboutSection() {
         </div>
 
         {/* Right Content */}
-        <div className="flex-1 max-w-2xl px-6 lg:px-8 lg:mr-16 mb-8 lg:mb-0 order-1 lg:order-2">
+        <div className="flex-1 lg:max-w-2xl px-6 lg:px-8 lg:mr-16 mb-8 lg:mb-0 order-1 lg:order-2">
           <div className="space-y-6 lg:space-y-8">
             <div className="space-y-4">
               <p className="text-[#33604C] font-black font-anantason tracking-wide text-sm lg:text-md uppercase lg:text-left text-right">
@@ -35,11 +35,11 @@ export default function AboutSection() {
               <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold font-anantason text-[#484d56] leading-tight lg:text-left text-right">
                 WHO IS TOKEN8?
               </h2>
-              <p className="text-[#6B7280] font-nunito text-base lg:text-lg max-w-xl leading-relaxed lg:text-left text-right">
+              <p className="text-[#6B7280] font-nunito text-base lg:text-lg lg:max-w-xl leading-relaxed lg:text-left text-right">
                 Built by a team with deep roots in real estate, blockchain, and
                 finance.
               </p>
-              <p className="text-[#6B7280] font-nunito text-base lg:text-lg max-w-xl leading-relaxed lg:text-left text-right">
+              <p className="text-[#6B7280] font-nunito text-base lg:text-lg lg:max-w-xl leading-relaxed lg:text-left text-right">
                 Join our Discord or follow us on X to keep updated with the
                 latest news and announcements.
               </p>
