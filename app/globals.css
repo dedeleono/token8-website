@@ -1,8 +1,27 @@
 @import "tailwindcss";
 
+/* Custom Font Faces */
+@font-face {
+  font-family: 'Anantason';
+  src: url('/fonts/Anantason-ExtraBold.7983b4a767e21885a261.f29bda3a2c22e3995680f7d283b8324d.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-anantason: 'Anantason', sans-serif;
+  --font-nunito: 'Nunito Sans', sans-serif;
 }
 
 @theme inline {
@@ -10,6 +29,8 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-anantason: var(--font-anantason);
+  --font-nunito: var(--font-nunito);
 }
 
 @media (prefers-color-scheme: dark) {
