@@ -1,6 +1,4 @@
 import Image from 'next/image'
-import { Button } from './ui/button';
-import { Send, X } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Footer(){
