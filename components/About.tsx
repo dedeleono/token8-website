@@ -37,7 +37,7 @@ export default function AboutSection() {
                 finance.
               </p>
               <p className="text-[#6B7280] font-nunito text-base lg:text-lg max-w-xl leading-relaxed">
-                Join our Telegram or follow us on X to keep updated with the
+                Join our Discord or follow us on X to keep updated with the
                 latest news and announcements.
               </p>
             </div>
