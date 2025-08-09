@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Send, X } from "lucide-react";
+import Link from "next/link";
 
 export default function AboutSection() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section className="relative min-h-screen w-full overflow-hidden" id="about">
       {/* Main Content Container */}
       <div className="h-full flex flex-col lg:flex-row lg:items-start lg:justify-between pt-20 lg:pt-40">
         {/* Left Content - Image (Order changed for mobile) */}
@@ -43,15 +44,17 @@ export default function AboutSection() {
 
             {/* Social Icons */}
             <div className="flex items-center gap-4">
-              <div className="bg-[#9D4F3B] p-2 rounded-md">
-                <Image
-                  src="/img/X.svg"
-                  alt="X"
-                  width={80}
-                  height={24}
-                  className="h-5 w-auto"
-                />
-              </div>
+              <Link href="https://x.com/token8_">
+                <div className="bg-[#9D4F3B] p-2 rounded-md">
+                  <Image
+                    src="/img/X.svg"
+                    alt="X"
+                    width={80}
+                    height={24}
+                    className="h-5 w-auto"
+                  />
+                </div>
+              </Link>
             </div>
           </div>
         </div>

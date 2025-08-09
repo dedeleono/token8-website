@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroSection() {
   return (
-    <main className="relative min-h-screen w-full overflow-hidden">
+    <main className="relative min-h-screen w-full overflow-hidden" id="home">
       {/* Main Content Container */}
       <div className="h-full flex flex-col lg:flex-row lg:items-start lg:justify-between pt-20 lg:pt-40">
         {/* Left Content */}

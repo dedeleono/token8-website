@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Button } from './ui/button';
 import { Send, X } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Footer(){
     return (
@@ -34,15 +35,17 @@ export default function Footer(){
           <div className="absolute bottom-0 right-0 bg-[#33604C] px-19 py-13 flex flex-col items-end gap-4 rounded-tl-lg">
             {/* Social Icons */}
             <div className="flex gap-3 mb-3">
-              <div className="bg-[#9D4F3B] p-2 rounded-md">
-                <Image
-                  src="/img/X.svg"
-                  alt="X"
-                  width={80}
-                  height={24}
-                  className="h-4 w-auto"
-                />
-              </div>
+              <Link href="https://x.com/token8_">
+                <div className="bg-[#9D4F3B] p-2 rounded-md">
+                  <Image
+                    src="/img/X.svg"
+                    alt="X"
+                    width={80}
+                    height={24}
+                    className="h-4 w-auto"
+                  />
+                </div>
+              </Link>
             </div>
 
             {/* Copyright */}

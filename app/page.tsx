@@ -12,7 +12,7 @@ import FooterDivider from "@/components/FooterDivider";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-[#FDFAF1] relative overflow-hidden">
+    <div className="min-h-screen bg-[#FDFAF1] relative">
       {/* Header */}
       <Header />
 
