@@ -92,13 +92,15 @@ export function Navigation() {
       >
         <div className="bg-[#33604C] rounded-lg px-4 py-3 flex items-center justify-between shadow-lg">
           <div className="flex items-center gap-2">
-            <Image
-              src="/img/token8-white.svg"
-              alt="TOKEN8"
-              width={80}
-              height={24}
-              className="h-5 w-auto"
-            />
+            <Link href="#home">
+              <Image
+                src="/img/token8-white.svg"
+                alt="TOKEN8"
+                width={80}
+                height={24}
+                className="h-5 w-auto"
+              />
+            </Link>
           </div>
           <div className="w-1 h-1 bg-white rounded-full"></div>
 
