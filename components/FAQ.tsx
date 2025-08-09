@@ -26,7 +26,7 @@ export default function FAQSection() {
 
         <div className="space-y-6">
           <Collapsible className="group border-b border-black">
-            <div className=" backdrop-blur-sm rounded-2xl border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
+            <div className=" border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
               <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
                 <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
                   WHAT IS TOKEN8?
@@ -72,7 +72,7 @@ export default function FAQSection() {
           </Collapsible>
 
           <Collapsible className="group border-b border-black">
-            <div className=" backdrop-blur-sm rounded-2xl border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
+            <div className=" border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
               <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
                 <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
                   IS MY DATA SECURE?
@@ -93,7 +93,7 @@ export default function FAQSection() {
           </Collapsible>
 
           <Collapsible className="group border-b border-black">
-            <div className=" backdrop-blur-sm rounded-2xl border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
+            <div className="border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
               <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
                 <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
                   WHAT BLOCKCHAINS DO YOU SUPPORT?
@@ -114,7 +114,7 @@ export default function FAQSection() {
           </Collapsible>
 
           <Collapsible className="group border-b border-black">
-            <div className=" backdrop-blur-sm rounded-2xl border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
+            <div className=" border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
               <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
                 <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
                   DO YOU OFFER CUSTOMER SUPPORT?

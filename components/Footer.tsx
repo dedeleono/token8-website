@@ -5,13 +5,13 @@ import Link from 'next/link';
 
 export default function Footer(){
     return (
-      <footer className="relative bg-[#EAE6D6] overflow-hidden">
+      <footer className="relative bg-[#33604C] overflow-hidden">
         {/* Desktop Layout - Hidden on Mobile */}
         <div className="hidden lg:block h-[600px]">
           {/* TOKEN8 Logo - Left Side with more breathing room */}
           <div className="absolute left-12 bottom-16 z-10 flex items-end">
             <Image
-              src="/img/token8-black.svg"
+              src="/img/token8-white.svg"
               alt="TOKEN8"
               width={180}
               height={54}
@@ -32,7 +32,7 @@ export default function Footer(){
           </div>
 
           {/* White Navigation Bar - Bottom Right */}
-          <div className="absolute bottom-0 right-0 bg-[#33604C] px-19 py-13 flex flex-col items-end gap-4 rounded-tl-lg">
+          <div className="absolute bottom-0 right-0 bg-white px-19 py-13 flex flex-col items-end gap-4 rounded-tl-lg">
             {/* Social Icons */}
             <div className="flex gap-3 mb-3">
               <Link href="https://x.com/token8_">
@@ -50,7 +50,7 @@ export default function Footer(){
 
             {/* Copyright with better typography */}
             <div className="text-center">
-              <p className="text-white font-anantason text-sm font-black leading-relaxed">
+              <p className="text-black font-anantason text-sm font-black leading-relaxed">
                 © 2025 TOKEN8 | ALL RIGHTS RESERVED
               </p>
             </div>
@@ -62,7 +62,7 @@ export default function Footer(){
           {/* TOKEN8 Logo with more generous spacing */}
           <div className="flex justify-center py-12 px-6">
             <Image
-              src="/img/token8-black.svg"
+              src="/img/token8-white.svg"
               alt="TOKEN8"
               width={180}
               height={54}
@@ -84,24 +84,24 @@ export default function Footer(){
 
           {/* Social and Copyright with improved layout */}
           <div className="px-6 py-12">
-            <div className="bg-[#33604C] px-8 py-6 rounded-xl flex flex-col items-center gap-6 shadow-lg">
+            <div className="bg-white px-8 py-6 rounded-xl flex flex-col items-center gap-6 shadow-lg">
               {/* Social Icons with better spacing */}
               <div className="flex gap-4">
                 <Link href="https://x.com/token8_">
-                <div className="bg-[#9D4F3B] p-3 rounded-lg">
-                  <Image
-                    src="/img/X.svg"
-                    alt="X"
-                    width={80}
-                    height={24}
-                    className="h-5 w-auto"
-                  />
-                </div>
+                  <div className="bg-[#9D4F3B] p-3 rounded-lg">
+                    <Image
+                      src="/img/X.svg"
+                      alt="X"
+                      width={80}
+                      height={24}
+                      className="h-5 w-auto"
+                    />
+                  </div>
                 </Link>
               </div>
 
               {/* Copyright with improved typography */}
-              <p className="text-white font-anantason text-sm font-black text-center leading-relaxed">
+              <p className="text-black font-anantason text-sm font-black text-center leading-relaxed">
                 © 2025 TOKEN8 | ALL RIGHTS RESERVED
               </p>
             </div>
