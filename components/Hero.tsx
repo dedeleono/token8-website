@@ -31,10 +31,10 @@ export default function HeroSection() {
               >
                 WHITEPAPER
               </Button>
-              <Link href="#about">
+              <Link href="#about" className="w-full">
                 <Button
                   variant="outline"
-                  className="border-[#9D4F3B] bg-transparent font-anantason font-black border-2 text-[#9D4F3B] hover:bg-[#9D4F3B] hover:text-white px-6 lg:px-8 py-3 rounded-md text-sm lg:text-base cursor-pointer"
+                  className="border-[#9D4F3B] w-full lg:w-auto bg-transparent font-anantason font-black border-2 text-[#9D4F3B] hover:bg-[#9D4F3B] hover:text-white px-6 lg:px-8 py-3 rounded-md text-sm lg:text-base cursor-pointer"
                   size="lg"
                 >
                   ABOUT US
@@ -45,7 +45,7 @@ export default function HeroSection() {
         </div>
 
         {/* Right Content - Image */}
-        <div className="flex-1 flex justify-center lg:justify-end items-center min-h-[400px] lg:h-screen lg:px-0">
+        <div className="flex-1 flex justify-end items-center min-h-[400px] lg:h-screen lg:px-0">
           <div className="w-full max-w-lg lg:max-w-none">
             <Image
               src="/img/house-right.png"
