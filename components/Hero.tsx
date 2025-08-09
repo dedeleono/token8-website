@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -25,18 +26,20 @@ export default function HeroSection() {
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
-                className="bg-[#33604C] hover:bg-[#2A4F3F] font-anantason text-white px-6 lg:px-8 py-3 rounded-md font-black uppercase text-sm lg:text-base"
+                className="bg-[#33604C] hover:bg-[#2A4F3F] font-anantason text-white px-6 lg:px-8 py-3 rounded-md font-black uppercase text-sm lg:text-base cursor-pointer"
                 size="lg"
               >
                 WHITEPAPER
               </Button>
-              <Button
-                variant="outline"
-                className="border-[#9D4F3B] bg-transparent font-anantason font-black border-2 text-[#9D4F3B] hover:bg-[#9D4F3B] hover:text-white px-6 lg:px-8 py-3 rounded-md text-sm lg:text-base"
-                size="lg"
-              >
-                ABOUT US
-              </Button>
+              <Link href="#about">
+                <Button
+                  variant="outline"
+                  className="border-[#9D4F3B] bg-transparent font-anantason font-black border-2 text-[#9D4F3B] hover:bg-[#9D4F3B] hover:text-white px-6 lg:px-8 py-3 rounded-md text-sm lg:text-base cursor-pointer"
+                  size="lg"
+                >
+                  ABOUT US
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

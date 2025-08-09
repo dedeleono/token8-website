@@ -27,8 +27,8 @@ export default function FAQSection() {
         <div className="space-y-6">
           <Collapsible className="group">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-[#e5e7eb]/50 p-8 shadow-sm hover:shadow-lg transition-all duration-300 group-data-[state=open]:shadow-xl group-data-[state=open]:border-[#33604C]/20 ">
-              <CollapsibleTrigger className="flex items-center justify-between w-full text-left">
-                <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-200">
+              <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
+                <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
                   WHAT IS TOKEN8?
                 </span>
                 <div className="flex-shrink-0 ml-4">
@@ -40,8 +40,9 @@ export default function FAQSection() {
                   <p className="text-[#4B5563] leading-relaxed lg:text-lg text-md font-nunito">
                     TOKEN8 is a platform that enables seamless digital asset
                     creation and management. We provide cutting-edge solutions
-                    for businesses looking to enter the blockchain ecosystem with
-                    security and simplicity at the forefront to raise capital.
+                    for businesses looking to enter the blockchain ecosystem
+                    with security and simplicity at the forefront to raise
+                    capital.
                   </p>
                 </div>
               </CollapsibleContent>
@@ -50,8 +51,8 @@ export default function FAQSection() {
 
           <Collapsible className="group">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-[#e5e7eb]/50 p-8 shadow-sm hover:shadow-lg transition-all duration-300 group-data-[state=open]:shadow-xl group-data-[state=open]:border-[#33604C]/20 ">
-              <CollapsibleTrigger className="flex items-center justify-between w-full text-left">
-                <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-200">
+              <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
+                <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
                   HOW DO I GET STARTED?
                 </span>
                 <div className="flex-shrink-0 ml-4">
@@ -72,8 +73,8 @@ export default function FAQSection() {
 
           <Collapsible className="group">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-[#e5e7eb]/50 p-8 shadow-sm hover:shadow-lg transition-all duration-300 group-data-[state=open]:shadow-xl group-data-[state=open]:border-[#33604C]/20 ">
-              <CollapsibleTrigger className="flex items-center justify-between w-full text-left">
-                <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-200">
+              <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
+                <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
                   IS MY DATA SECURE?
                 </span>
                 <div className="flex-shrink-0 ml-4">
@@ -93,8 +94,8 @@ export default function FAQSection() {
 
           <Collapsible className="group">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-[#e5e7eb]/50 p-8 shadow-sm hover:shadow-lg transition-all duration-300 group-data-[state=open]:shadow-xl group-data-[state=open]:border-[#33604C]/20 ">
-              <CollapsibleTrigger className="flex items-center justify-between w-full text-left">
-                <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-200">
+              <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
+                <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
                   WHAT BLOCKCHAINS DO YOU SUPPORT?
                 </span>
                 <div className="flex-shrink-0 ml-4">
@@ -114,8 +115,8 @@ export default function FAQSection() {
 
           <Collapsible className="group">
             <div className="bg-white/70 backdrop-blur-sm rounded-2xl border border-[#e5e7eb]/50 p-8 shadow-sm hover:shadow-lg transition-all duration-300 group-data-[state=open]:shadow-xl group-data-[state=open]:border-[#33604C]/20 ">
-              <CollapsibleTrigger className="flex items-center justify-between w-full text-left">
-                <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-200">
+              <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
+                <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
                   DO YOU OFFER CUSTOMER SUPPORT?
                 </span>
                 <div className="flex-shrink-0 ml-4">
