@@ -60,7 +60,7 @@ export default function FAQSection() {
                 <div className="border-t border-[#10b981]/20 pt-6">
                   <p className="text-[#4B5563] leading-relaxed text-lg">
                     Getting started with TOKEN8 is simple. Create your account,
-                    complete our streamlined onboarding process, and you'll be
+                    complete our streamlined onboarding process, and you&apos;ll be
                     ready to create your first token in minutes. Our intuitive
                     dashboard guides you through every step of the tokenization
                     process.
@@ -110,7 +110,7 @@ export default function FAQSection() {
                     TOKEN8 supports multiple blockchain networks including
                     Ethereum, Polygon, Binance Smart Chain, and more. Our
                     multi-chain architecture allows you to deploy tokens on the
-                    network that best fits your project's requirements and
+                    network that best fits your project&apos;s requirements and
                     budget considerations.
                   </p>
                 </div>
@@ -134,7 +134,7 @@ export default function FAQSection() {
                     Yes! Our dedicated support team is available 24/7 to assist
                     you with any questions or issues. Whether you need technical
                     help, have questions about tokenization, or need guidance on
-                    best practices, we're here to help you succeed.
+                    best practices, we&apos;re here to help you succeed.
                   </p>
                 </div>
               </CollapsibleContent>
