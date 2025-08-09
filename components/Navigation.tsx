@@ -100,6 +100,7 @@ export function Navigation() {
               className="h-5 w-auto"
             />
           </div>
+          <div className="w-1 h-1 bg-white rounded-full"></div>
 
           <nav className="flex items-center gap-6 font-anantason">
             <a
@@ -115,6 +116,7 @@ export function Navigation() {
               FAQ
             </a>
           </nav>
+          <div className="w-1 h-1 bg-white rounded-full"></div>
 
           <div className="flex items-center">
             <Link href="https://x.com/token8_">
