@@ -14,11 +14,14 @@ export default function FooterDivider({ className, color = "#33604C" }: FooterDi
         viewBox="0 0 1920 474" 
         fill="none" 
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-auto object-cover"
+        className="w-full h-auto object-cover block"
         style={{
           clipPath: "inset(0 0 50% 0)", // Shows only the bottom 50% of the SVG
           transform: "translateY(50%)", // Move up by 50% to align with footer top
+          marginBottom: "-1px", // Eliminate any gap
+          display: "block" // Ensure no inline spacing
         }}
+        preserveAspectRatio="none"
       >
         <path d="M5.86035 8.0175L192.14 115.837C210.62 126.537 222 146.267 222 167.617V305.848C222 327.198 210.62 346.938 192.14 357.628L5.86035 465.448C-12.6096 476.138 -35.3904 476.138 -53.8604 465.448L-240.14 357.628C-258.62 346.927 -270 327.198 -270 305.848V167.617C-270 146.267 -258.62 126.527 -240.14 115.837L-53.8604 8.0175C-35.3904 -2.6725 -12.6096 -2.6725 5.86035 8.0175Z" fill={color}/>
         <path d="M497.86 8.0175L684.14 115.837C702.62 126.537 714 146.267 714 167.617V305.848C714 327.198 702.62 346.938 684.14 357.628L497.86 465.448C479.39 476.138 456.61 476.138 438.14 465.448L251.86 357.628C233.38 346.927 222 327.198 222 305.848V167.617C222 146.267 233.38 126.527 251.86 115.837L438.14 8.0175C456.61 -2.6725 479.39 -2.6725 497.86 8.0175Z" fill={color}/>
