@@ -10,10 +10,10 @@ export default function AboutSection() {
       id="about"
     >
       {/* Main Content Container */}
-      <div className="h-full flex flex-col lg:flex-row lg:items-start lg:justify-between pt-20 lg:pt-40">
+      <div className="h-full flex flex-col lg:flex-row lg:items-center lg:justify-between pt-12 lg:pt-24 pb-8 lg:pb-16">
         {/* Left Content - Image (Order changed for mobile) */}
-        <div className="flex-1 flex justify-start items-center min-h-[400px] lg:h-screen order-2 lg:order-1 lg:px-0">
-          <div className="w-full max-w-lg lg:max-w-none">
+        <div className="flex-1 flex justify-start items-center min-h-[350px] lg:min-h-[500px] order-2 lg:order-1">
+          <div className="w-full max-w-xl lg:max-w-none">
             <Image
               src="/img/house-left.png"
               alt="Detailed modern house 3D illustration"
@@ -26,7 +26,7 @@ export default function AboutSection() {
         </div>
 
         {/* Right Content */}
-        <div className="flex-1 lg:max-w-2xl px-6 lg:px-8 lg:mr-16 mb-8 lg:mb-0 order-1 lg:order-2">
+        <div className="flex-1 lg:max-w-3xl px-6 lg:px-12 lg:mr-8 mb-8 lg:mb-0 order-1 lg:order-2">
           <div className="space-y-6 lg:space-y-8">
             <div className="space-y-4">
               <p className="text-[#33604C] font-black font-anantason tracking-wide text-sm lg:text-md uppercase lg:text-left text-right">

@@ -6,9 +6,9 @@ export default function HeroSection() {
   return (
     <main className="relative min-h-screen w-full overflow-hidden" id="home">
       {/* Main Content Container */}
-      <div className="h-full flex flex-col lg:flex-row lg:items-start lg:justify-between pt-20 lg:pt-40">
+      <div className="h-full flex flex-col lg:flex-row lg:items-center lg:justify-between pt-16 lg:pt-24 pb-8 lg:pb-16">
         {/* Left Content */}
-        <div className="flex-1 max-w-2xl px-6 lg:px-8 lg:ml-16 mb-8 lg:mb-0">
+        <div className="flex-1 max-w-3xl px-6 lg:px-12 lg:ml-8 mb-8 lg:mb-0">
           <div className="space-y-6 lg:space-y-8">
             <div className="space-y-4">
               <p className="text-[#33604C] font-black font-anantason tracking-wide text-sm lg:text-md uppercase">
@@ -24,7 +24,7 @@ export default function HeroSection() {
             </div>
 
             {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col lg:flex-row gap-4">
               <Button
                 className="bg-[#33604C] hover:bg-[#2A4F3F] font-anantason text-white px-6 lg:px-8 py-3 rounded-md font-black uppercase text-sm lg:text-base cursor-pointer"
                 size="lg"
@@ -45,8 +45,8 @@ export default function HeroSection() {
         </div>
 
         {/* Right Content - Image */}
-        <div className="flex-1 flex justify-end items-center min-h-[400px] lg:h-screen lg:px-0">
-          <div className="w-full max-w-lg lg:max-w-none">
+        <div className="flex-1 flex justify-end items-center min-h-[350px] lg:min-h-[500px]">
+          <div className="w-full max-w-xl lg:max-w-none">
             <Image
               src="/img/house-right.png"
               alt="Modern house 3D illustration"
