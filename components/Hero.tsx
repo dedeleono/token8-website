@@ -3,6 +3,15 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 export default function HeroSection() {
+  const handleWhitepaperDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/Token 8 Whitepaper.pdf';
+    link.download = 'Token 8 Whitepaper.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <main className="relative min-h-screen w-full overflow-hidden" id="home">
       {/* Main Content Container */}
@@ -15,11 +24,13 @@ export default function HeroSection() {
                 TOKEN 8
               </p>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-anantason font-bold text-[#374151] leading-tight">
-                COMING SOON...
+                FRACTIONAL REAL ESTATE OWNERSHIP
               </h1>
               <p className="text-[#484d56] font-nunito text-base lg:text-lg max-w-md leading-relaxed">
                 Token8 is unlocking access to real-world real estate through
-                tokenization on Solana.
+                tokenization on Solana. <br />
+                <br />
+                Turning illiquid real estate into liquid tokens.
               </p>
             </div>
 
@@ -28,6 +39,7 @@ export default function HeroSection() {
               <Button
                 className="bg-[#33604C] hover:bg-[#2A4F3F] font-anantason text-white px-6 lg:px-8 py-3 rounded-md font-black uppercase text-sm lg:text-base cursor-pointer"
                 size="lg"
+                onClick={handleWhitepaperDownload}
               >
                 WHITEPAPER
               </Button>
