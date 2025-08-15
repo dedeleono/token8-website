@@ -14,13 +14,20 @@ export default function HeroSection() {
     
     setIsDownloading(true);
     
-    // Show loading toast
+    // Show loading toast with your brand colors
     const loadingToast = toast.loading("Preparing your whitepaper...", {
       duration: Infinity,
+      style: {
+        background: '#33604C',
+        color: 'white',
+        border: 'none',
+        borderRadius: '8px',
+        fontWeight: '600',
+        fontSize: '14px'
+      }
     });
 
     try {
-      // Add a small delay for better UX and to show the loading state
       await new Promise(resolve => setTimeout(resolve, 800));
       
       const link = document.createElement('a');
@@ -30,18 +37,32 @@ export default function HeroSection() {
       link.click();
       document.body.removeChild(link);
       
-      // Dismiss loading toast and show success
       toast.dismiss(loadingToast);
       toast.success("Whitepaper downloaded successfully! 🎉", {
-        description: "Check your downloads folder for Token 8 Whitepaper.pdf",
+        description: "",
         duration: 4000,
+        style: {
+          background: '#33604C',
+          color: 'white',
+          border: 'none',
+          borderRadius: '8px',
+          fontWeight: '600',
+          fontSize: '14px'
+        }
       });
     } catch (error) {
-      // Dismiss loading toast and show error
       toast.dismiss(loadingToast);
       toast.error("Download failed", {
-        description: "Please try again or contact support if the issue persists.",
+        description: "Please try again.",
         duration: 4000,
+        style: {
+          background: '#9D4F3B',
+          color: 'white',
+          border: 'none',
+          borderRadius: '8px',
+          fontWeight: '600',
+          fontSize: '14px'
+        }
       });
     } finally {
       setIsDownloading(false);
@@ -60,13 +81,13 @@ export default function HeroSection() {
                 TOKEN 8
               </p>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-anantason font-bold text-[#374151] leading-tight">
-                FRACTIONAL RWA OWNERSHIP
+                COMING SOON...
               </h1>
               <p className="text-[#484d56] font-nunito text-base lg:text-lg max-w-md leading-relaxed">
                 {/* Token8 is unlocking access to real-world real estate through
                 tokenization on Solana. <br />
                 <br /> */}
-                Turning illiquid real estate into liquid tokens.
+                Fractional ownership. Turning illiquid real estate into liquid tokens.
               </p>
             </div>
 
