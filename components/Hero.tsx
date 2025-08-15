@@ -3,15 +3,49 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { toast } from "sonner";
+import { useState } from "react";
 
 export default function HeroSection() {
-  const handleWhitepaperDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/Token 8 Whitepaper.pdf';
-    link.download = 'Token 8 Whitepaper.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const [isDownloading, setIsDownloading] = useState(false);
+
+  const handleWhitepaperDownload = async () => {
+    if (isDownloading) return;
+    
+    setIsDownloading(true);
+    
+    // Show loading toast
+    const loadingToast = toast.loading("Preparing your whitepaper...", {
+      duration: Infinity,
+    });
+
+    try {
+      // Add a small delay for better UX and to show the loading state
+      await new Promise(resolve => setTimeout(resolve, 800));
+      
+      const link = document.createElement('a');
+      link.href = '/Token 8 Whitepaper.pdf';
+      link.download = 'Token 8 Whitepaper.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      // Dismiss loading toast and show success
+      toast.dismiss(loadingToast);
+      toast.success("Whitepaper downloaded successfully! 🎉", {
+        description: "Check your downloads folder for Token 8 Whitepaper.pdf",
+        duration: 4000,
+      });
+    } catch (error) {
+      // Dismiss loading toast and show error
+      toast.dismiss(loadingToast);
+      toast.error("Download failed", {
+        description: "Please try again or contact support if the issue persists.",
+        duration: 4000,
+      });
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
   return (
@@ -39,16 +73,48 @@ export default function HeroSection() {
             {/* Buttons */}
             <div className="flex flex-col lg:flex-row gap-4">
               <Button
-                className="bg-[#33604C] hover:bg-[#2A4F3F] font-anantason text-white px-6 lg:px-8 py-3 rounded-md font-black uppercase text-sm lg:text-base cursor-pointer"
+                className={`
+                  bg-[#33604C] hover:bg-[#2A4F3F] font-anantason text-white px-6 lg:px-8 py-3 rounded-md font-black uppercase text-sm lg:text-base cursor-pointer
+                  transition-all duration-300 ease-in-out
+                  hover:scale-105 hover:shadow-lg
+                  active:scale-95
+                  ${isDownloading ? 'animate-pulse scale-95' : ''}
+                  relative overflow-hidden
+                  before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent
+                  before:translate-x-[-100%] hover:before:translate-x-[100%] before:transition-transform before:duration-700
+                `}
                 size="lg"
                 onClick={handleWhitepaperDownload}
+                disabled={isDownloading}
               >
-                WHITEPAPER
+                {isDownloading ? (
+                  <span className="flex items-center gap-2">
+                    <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                        fill="none"
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>
+                    DOWNLOADING...
+                  </span>
+                ) : (
+                  "WHITEPAPER"
+                )}
               </Button>
               <Link href="#about" className="w-full">
                 <Button
                   variant="outline"
-                  className="border-[#9D4F3B] w-full lg:w-auto bg-transparent font-anantason font-black border-2 text-[#9D4F3B] hover:bg-[#9D4F3B] hover:text-white px-6 lg:px-8 py-3 rounded-md text-sm lg:text-base cursor-pointer"
+                  className="border-[#9D4F3B] w-full lg:w-auto bg-transparent font-anantason font-black border-2 text-[#9D4F3B] hover:bg-[#9D4F3B] hover:text-white px-6 lg:px-8 py-3 rounded-md text-sm lg:text-base cursor-pointer transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-lg active:scale-95"
                   size="lg"
                 >
                   ABOUT US
