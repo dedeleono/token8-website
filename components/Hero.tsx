@@ -60,7 +60,7 @@ export default function HeroSection() {
                 TOKEN 8
               </p>
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-anantason font-bold text-[#374151] leading-tight">
-                FRACTIONAL REAL ESTATE OWNERSHIP
+                FRACTIONAL RWA OWNERSHIP
               </h1>
               <p className="text-[#484d56] font-nunito text-base lg:text-lg max-w-md leading-relaxed">
                 {/* Token8 is unlocking access to real-world real estate through
