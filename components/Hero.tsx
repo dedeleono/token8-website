@@ -3,12 +3,8 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { toast } from "sonner";
-import { useState } from "react";
 
 export default function HeroSection() {
-  const [isDownloading, setIsDownloading] = useState(false);
-
   const handleWhitepaperDownload = () => {
     window.open('/Token 8 Whitepaper.pdf', '_blank');
   };

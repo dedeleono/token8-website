@@ -20,7 +20,8 @@ export default function FAQSection() {
             QUESTIONS?
           </h2>
           <p className="text-[#6B7280] font-nunito text-lg max-w-2xl mx-auto">
-            Find answers to common questions about TOKEN8 and our platform
+            Find answers to common questions about Token8 and real estate
+            tokenization
           </p>
         </div>
 
@@ -29,7 +30,7 @@ export default function FAQSection() {
             <div className=" border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
               <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
                 <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
-                  WHAT IS TOKEN8?
+                  WHAT BLOCKCHAIN DO YOU USE?
                 </span>
                 <div className="flex-shrink-0 ml-4">
                   <Plus className="w-7 h-7 text-[#6B7280] group-data-[state=open]:rotate-45 group-data-[state=open]:text-red-600 group-hover:text-[#33604C] transition-all duration-300" />
@@ -38,11 +39,7 @@ export default function FAQSection() {
               <CollapsibleContent className="pt-6">
                 <div className="border-t border-[#33604C]/20 pt-6">
                   <p className="text-[#4B5563] leading-relaxed lg:text-lg text-md font-nunito">
-                    TOKEN8 is a platform that enables seamless digital asset
-                    creation and management. We provide cutting-edge solutions
-                    for businesses looking to enter the blockchain ecosystem
-                    with security and simplicity at the forefront to raise
-                    capital.
+                    Solana, for fast, low-cost transactions and scalability.
                   </p>
                 </div>
               </CollapsibleContent>
@@ -53,7 +50,7 @@ export default function FAQSection() {
             <div className=" border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
               <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
                 <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
-                  HOW DO I GET STARTED?
+                  HOW DO I INVEST?
                 </span>
                 <div className="flex-shrink-0 ml-4">
                   <Plus className="w-7 h-7 text-[#6B7280] group-data-[state=open]:rotate-45 group-data-[state=open]:text-red-600 group-hover:text-[#33604C] transition-all duration-300" />
@@ -61,11 +58,37 @@ export default function FAQSection() {
               </CollapsibleTrigger>
               <CollapsibleContent className="pt-6">
                 <div className="border-t border-[#33604C]/20 pt-6">
-                  <p className="text-[#4B5563] leading-relaxed lg:text-lg text-md font-nunito">
-                    Getting started with TOKEN8 is simple. Create your account,
-                    complete our streamlined onboarding process, and you&apos;ll
-                    be ready to make your first investment in minutes.
-                  </p>
+                  <div className="text-[#4B5563] leading-relaxed lg:text-lg text-md font-nunito space-y-3">
+                    <div className="flex items-start gap-3">
+                      <span className="bg-[#33604C] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                        1
+                      </span>
+                      <span>Connect your wallet (like Phantom or TipLink)</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="bg-[#33604C] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                        2
+                      </span>
+
+                      <span>Complete KYC verification</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="bg-[#33604C] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                        3
+                      </span>
+                      <span>Choose an asset</span>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <span className="bg-[#33604C] text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold flex-shrink-0 mt-0.5">
+                        4
+                      </span>
+                      <span>Buy tokens using stablecoins</span>
+                    </div>
+                    <p className="text-[#6B7280] text-sm mt-4 italic">
+                      Our platform guides you through each step with clear
+                      instructions and support.
+                    </p>
+                  </div>
                 </div>
               </CollapsibleContent>
             </div>
@@ -78,14 +101,15 @@ export default function FAQSection() {
                   IS MY DATA SECURE?
                 </span>
                 <div className="flex-shrink-0 ml-4">
-                  <Plus className="w-7 h-7 text-[#6B7280] group-data-[state=open]:rotate-45 group-data-[state=open]:text-red-600 group-hover:text-[#33604C] transition-all duration-300" />
+                  <Plus className="w-7 h-7 text-[#6B7280] group-data-[state=open]:rotate-45 group-data-[state-open]:text-red-600 group-hover:text-[#33604C] transition-all duration-300" />
                 </div>
               </CollapsibleTrigger>
               <CollapsibleContent className="pt-6">
                 <div className="border-t border-[#33604C]/20 pt-6">
                   <p className="text-[#4B5563] leading-relaxed lg:text-lg text-md font-nunito">
-                    Yes, we take security seriously. We use industry-standard
-                    encryption and best practices to protect your data.
+                    Yes. KYC is handled via trusted providers like ShuftiPro and
+                    Sumsub. Token8 never stores private keys or investor funds.
+                    All smart contracts are audited too.
                   </p>
                 </div>
               </CollapsibleContent>
@@ -96,7 +120,7 @@ export default function FAQSection() {
             <div className="border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
               <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
                 <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
-                  WHAT BLOCKCHAINS DO YOU SUPPORT?
+                  DO I NEED TO BE ACCREDITED?
                 </span>
                 <div className="flex-shrink-0 ml-4">
                   <Plus className="w-7 h-7 text-[#6B7280] group-data-[state=open]:rotate-45 group-data-[state=open]:text-red-600 group-hover:text-[#33604C] transition-all duration-300" />
@@ -105,8 +129,10 @@ export default function FAQSection() {
               <CollapsibleContent className="pt-6">
                 <div className="border-t border-[#33604C]/20 pt-6">
                   <p className="text-[#4B5563] leading-relaxed lg:text-lg text-md font-nunito">
-                    For now, TOKEN8 only supports Solana. We are working on
-                    adding more networks in the future.
+                    Depends on jurisdiction. Whitelists and controls are
+                    configurable based on local laws. Our platform automatically
+                    checks eligibility requirements based on your location
+                    during the KYC process.
                   </p>
                 </div>
               </CollapsibleContent>
@@ -117,7 +143,7 @@ export default function FAQSection() {
             <div className=" border-b border-b-[#e5e7eb]/50 p-8 transition-all duration-300 group-data-[state=open]:border-[#33604C]/20 ">
               <CollapsibleTrigger className="flex items-center justify-between w-full text-left cursor-pointer">
                 <span className="text-[#374151] font-black font-anantason text-lg lg:group-data-[state=open]:text-xl group-hover:text-[#33604C] group-data-[state=open]:text-[#9D4F3B] transition-all duration-101">
-                  DO YOU OFFER CUSTOMER SUPPORT?
+                  HOW DO I SELL MY TOKENS?
                 </span>
                 <div className="flex-shrink-0 ml-4">
                   <Plus className="w-7 h-7 text-[#6B7280] group-data-[state=open]:rotate-45 group-data-[state=open]:text-red-600 group-hover:text-[#33604C] transition-all duration-300" />
@@ -126,8 +152,10 @@ export default function FAQSection() {
               <CollapsibleContent className="pt-6">
                 <div className="border-t border-[#33604C]/20 pt-6">
                   <p className="text-[#4B5563] leading-relaxed lg:text-lg text-md font-nunito">
-                    Yes! Our dedicated support team is available 24/7 to assist
-                    you with any questions or issues.
+                    Use our built-in NOVA marketplace for peer-to-peer secondary
+                    market trading. Our compliance-gated marketplace ensures all
+                    trades meet regulatory requirements while providing 24/7
+                    liquidity.
                   </p>
                 </div>
               </CollapsibleContent>
