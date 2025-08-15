@@ -29,9 +29,9 @@ export default function HeroSection() {
                 FRACTIONAL REAL ESTATE OWNERSHIP
               </h1>
               <p className="text-[#484d56] font-nunito text-base lg:text-lg max-w-md leading-relaxed">
-                Token8 is unlocking access to real-world real estate through
+                {/* Token8 is unlocking access to real-world real estate through
                 tokenization on Solana. <br />
-                <br />
+                <br /> */}
                 Turning illiquid real estate into liquid tokens.
               </p>
             </div>
