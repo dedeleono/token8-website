@@ -40,12 +40,276 @@
   }
 }
 
-html {
-  scroll-behavior: smooth;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: -0.2rem;
+  line-height: 0.8;
+}
+
+p {
+  text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 0.8;
+}
+
+/* hero section */
+
+section {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  background-color: #111117;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-img-container, .hero-img-container img, .fade-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Ensure hero is visible on initial load */
+.hero-img-container {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+.hero-img-logo {
+  opacity: 1;
+}
+
+.hero-img-copy {
+  opacity: 1;
+}
+
+.hero-img-logo img {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 250px;
+  height: auto;
+  object-fit: contain;
+}
+
+.hero-img-copy {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  will-change: opacity;
+}
+
+.hero-img-copy p {
+  font-size:0.65rem
+}
+
+.fade-overlay {
+  background-color: #fff;
+  will-change: opacity;
+  opacity: 0; /* Hide by default to prevent white screen */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: center 15%;
+  width: 100%;
+  height: 200%;
+  z-index: 1;
+  opacity: 0; /* Hide initially to prevent overlay interference */
+}
+
+.logo-container {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 150px;
+  z-index: 2;
+}
+
+.overlay-copy {
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
+}
+
+.overlay-copy h1 {
+  opacity: 0; /* Hide initially until animation reveals it */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transform-origin: center 0%;
+}
+
+.outro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top,
+.bottom {
+  position: absolute;
+  width: 80vw;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 970px;
+  height: auto;
+  aspect-ratio: 970 / 250;
+}
+
+/* end hero section */
+
+/* section 2 */
+
+.h1-section2 {
+  font-size: 7vw;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.p-section2 {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.hero-section2 {
+  flex-direction: column;
+  transition: background-color 0.3s ease;
+  color: #e3e3bd;
+}
+
+.hero-section2-header {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  will-change: transform, opacity;
+}
+
+.animated-icons-section2 {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  will-change: transform;
+  z-index: 2;
+}
+
+.animated-icon-section2 {
+  flex: 1;
+  aspect-ratio: 1;
+  will-change: transform;
+}
+
+.animated-text-section2 {
+  position: relative;
+  max-width: 1000px;
+  text-align: center;
+  color: #111117;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.text-segment-section2 {
+  opacity: 0;
+}
+
+.placeholder-icon-section2 {
+  margin-top: -10px;
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  vertical-align: middle;
+  will-change: transform;
+  visibility: hidden;
+}
+
+@media(max-width: 1000px){
+  .h1-section2 {
+    font-size: 12vw;
+    text-align: center;
+  }
+  .p-section2 {
+    font-size: 1.1rem;
+  }
+
+  .hero-section2-header {
+    top: 45%;
+    width: 100%;
+  }
+
+  .placeholder-icon-section2 {
+    margin-top: -4px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* end section 2 */
+
+@keyframes glitch-right {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(102%); }
+}
+
+@keyframes glitch-left {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-102%); }
+}
+
+@media(max-width: 900px){
+  h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .overlay-copy {
+    width: 100%;
+  }
 }
