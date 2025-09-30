@@ -202,7 +202,7 @@ export default function Section2() {
             x: deltaX,
             y: baseY + deltaY,
             scale: exactScale,
-            opacity: 1,
+            opacity: 0,
           });
 
           iconElements.forEach((icon) => {
