@@ -16,7 +16,7 @@ export default function GlitchText() {
     // Check if GSAP is available
     if (typeof window !== "undefined" && window.TimelineMax) {
       function glitchRight() {
-        let tl = new window.TimelineMax();
+        const tl = new window.TimelineMax();
         tl.staggerFrom(
           ".right",
           3,
@@ -27,7 +27,7 @@ export default function GlitchText() {
       }
 
       function glitchLeft() {
-        let tl = new window.TimelineMax();
+        const tl = new window.TimelineMax();
         tl.staggerFrom(
           ".left",
           3,
@@ -37,7 +37,7 @@ export default function GlitchText() {
         return tl;
       }
 
-      let timeline = new window.TimelineMax({ repeat: -1, yoyo: true })
+      const timeline = new window.TimelineMax({ repeat: -1, yoyo: true })
         .addLabel("start", 0)
         .add([glitchLeft(), glitchRight()]);
     }
