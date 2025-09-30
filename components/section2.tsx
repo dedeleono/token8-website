@@ -29,6 +29,13 @@ export default function Section2() {
   useEffect(() => {
     const lenisInstance = getLenis();
     setLenis(lenisInstance);
+    
+    // Add passive listeners for better mobile performance
+    if (typeof window !== "undefined") {
+      const options = { passive: true };
+      document.addEventListener('touchstart', () => {}, options);
+      document.addEventListener('touchmove', () => {}, options);
+    }
   }, []);
 
   const cleanupDuplicateIcons = () => {
@@ -42,9 +49,7 @@ export default function Section2() {
   };
 
   useGSAP(() => {
-    if (!lenis) return;
-
-    gsap.registerPlugin(ScrollTrigger);
+    if (!lenis || typeof window === "undefined") return;
 
     // Lenis is already connected globally
 
@@ -327,7 +332,9 @@ export default function Section2() {
 
     return () => {
       cleanupDuplicateIcons();
-      scrollTrigger.kill();
+      if (scrollTrigger) {
+        scrollTrigger.kill();
+      }
     };
   }, [lenis]);
 

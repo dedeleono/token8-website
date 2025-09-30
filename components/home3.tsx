@@ -43,9 +43,7 @@ export default function ComingSoonAlt() {
   }, []);
 
   useGSAP(() => {
-    if (!lenis) return;
-
-    gsap.registerPlugin(ScrollTrigger);
+    if (!lenis || typeof window === "undefined") return;
     
     // Set initial states to ensure elements are visible
     const heroImgContainer = heroImgContainerRef.current;
@@ -216,7 +214,12 @@ export default function ComingSoonAlt() {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      // Only kill ScrollTriggers created by this component
+      ScrollTrigger.getAll().forEach((trigger) => {
+        if (trigger.trigger && trigger.trigger.classList?.contains("hero")) {
+          trigger.kill();
+        }
+      });
     };
   }, [lenis]);
 

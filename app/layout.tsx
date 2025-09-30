@@ -31,6 +31,7 @@ const nunitoSans = localFont({
 export const metadata: Metadata = {
   title: "TOKEN8",
   description: "Internet Capital Market for the masses",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no",
 };
 
 export default function RootLayout({
