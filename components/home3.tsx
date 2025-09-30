@@ -31,6 +31,7 @@ export default function ComingSoonAlt() {
   const overlayCopyRef = useRef<HTMLHeadingElement>(null);
   const logoContainerRef = useRef<HTMLDivElement>(null);
   const logoMaskRef = useRef<SVGPathElement>(null);
+  const lastFrameTimeRef = useRef<number>(0);
 
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
@@ -124,6 +125,8 @@ export default function ComingSoonAlt() {
     );
 
     // Create scroll trigger animation
+    const isMobile = window.innerWidth < 1000;
+    
     ScrollTrigger.create({
       trigger: ".hero",
       start: "top top",
@@ -132,7 +135,14 @@ export default function ComingSoonAlt() {
       pinSpacing: true,
       scrub: 1,
       onUpdate: (self) => {
+        const now = performance.now();
         const scrollProgress = self.progress;
+        
+        // Throttle updates on mobile for fast scrolling
+        if (isMobile && (now - lastFrameTimeRef.current < 16)) {
+          return;
+        }
+        lastFrameTimeRef.current = now;
         const fadeOpacity = 1 - scrollProgress * (1 / 0.15);
 
         if (scrollProgress < 0.15) {

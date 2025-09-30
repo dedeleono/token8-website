@@ -23,6 +23,7 @@ export default function Section2() {
     iconRects: DOMRect[];
     targetRects: DOMRect[];
   } | null>(null);
+  const lastFrameTimeRef = useRef<number>(0);
 
   // Get global Lenis instance
   useEffect(() => {
@@ -77,7 +78,7 @@ export default function Section2() {
     const headerIconSize = isMobile ? 30 : 60;
     const currentIconSize = iconElements[0]?.getBoundingClientRect().width || 60;
     const exactScale = headerIconSize / currentIconSize;
-
+    
     const scrollTrigger = ScrollTrigger.create({
       trigger: heroSection,
       start: "top top",
@@ -86,7 +87,14 @@ export default function Section2() {
       pinSpacing: true,
       scrub: 1,
       onUpdate: (self) => {
+        const now = performance.now();
         const progress = self.progress;
+        
+        // Throttle updates on mobile for fast scrolling
+        if (isMobile && (now - lastFrameTimeRef.current < 16)) {
+          return;
+        }
+        lastFrameTimeRef.current = now;
 
         // Reset all text segments
         textSegments.forEach((segment) => {
