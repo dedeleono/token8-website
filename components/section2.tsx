@@ -18,6 +18,10 @@ export default function Section2() {
   const [lenis, setLenis] = useState<Lenis | null>(null);
   const duplicateIconsRef = useRef<HTMLElement[]>([]);
   const textAnimationOrderRef = useRef<{ segment: HTMLSpanElement; originalIndex: number }[]>([]);
+  const cachedPositionsRef = useRef<{
+    iconRects: DOMRect[];
+    targetRects: DOMRect[];
+  } | null>(null);
 
   // Initialize Lenis smooth scrolling
   useEffect(() => {
@@ -33,6 +37,7 @@ export default function Section2() {
       }
     });
     duplicateIconsRef.current = [];
+    cachedPositionsRef.current = null;
   };
 
   useGSAP(() => {
@@ -211,6 +216,12 @@ export default function Section2() {
 
           // Create duplicate icons if they don't exist
           if (duplicateIconsRef.current.length === 0) {
+            // Cache positions once when creating duplicates
+            cachedPositionsRef.current = {
+              iconRects: iconElements.map(icon => icon.getBoundingClientRect()),
+              targetRects: placeHolders.map(holder => holder.getBoundingClientRect())
+            };
+
             iconElements.forEach((icon, index) => {
               const duplicate = icon.cloneNode(true) as HTMLElement;
               duplicate.className = "duplicate-icon";
@@ -224,20 +235,21 @@ export default function Section2() {
             });
           }
 
-          // Animate duplicate icons
-          duplicateIconsRef.current.forEach((duplicate, index) => {
-            if (index < placeHolders.length) {
-              const iconRect = iconElements[index].getBoundingClientRect();
-              const startCenterX = iconRect.left + iconRect.width / 2;
-              const startCenterY = iconRect.top + iconRect.height / 2;
-              const startPageX = startCenterX + window.pageXOffset;
-              const startPageY = startCenterY + window.pageYOffset;
+          // Animate duplicate icons using cached positions
+          if (cachedPositionsRef.current) {
+            duplicateIconsRef.current.forEach((duplicate, index) => {
+              if (index < placeHolders.length && cachedPositionsRef.current) {
+                const iconRect = cachedPositionsRef.current.iconRects[index];
+                const startCenterX = iconRect.left + iconRect.width / 2;
+                const startCenterY = iconRect.top + iconRect.height / 2;
+                const startPageX = startCenterX + window.pageXOffset;
+                const startPageY = startCenterY + window.pageYOffset;
 
-              const targetRect = placeHolders[index].getBoundingClientRect();
-              const targetCenterX = targetRect.left + targetRect.width / 2;
-              const targetCenterY = targetRect.top + targetRect.height / 2;
-              const targetPageX = targetCenterX + window.pageXOffset;
-              const targetPageY = targetCenterY + window.pageYOffset;
+                const targetRect = cachedPositionsRef.current.targetRects[index];
+                const targetCenterX = targetRect.left + targetRect.width / 2;
+                const targetCenterY = targetRect.top + targetRect.height / 2;
+                const targetPageX = targetCenterX + window.pageXOffset;
+                const targetPageY = targetCenterY + window.pageYOffset;
 
               const moveX = targetPageX - startPageX;
               const moveY = targetPageY - startPageY;
@@ -257,12 +269,13 @@ export default function Section2() {
               const finalPageX = startPageX + currentX;
               const finalPageY = startPageY + currentY;
 
-              duplicate.style.left = finalPageX - headerIconSize / 2 + "px";
-              duplicate.style.top = finalPageY - headerIconSize / 2 + "px";
-              duplicate.style.opacity = "1";
-              duplicate.style.display = "flex";
-            }
-          });
+                duplicate.style.left = finalPageX - headerIconSize / 2 + "px";
+                duplicate.style.top = finalPageY - headerIconSize / 2 + "px";
+                duplicate.style.opacity = "1";
+                duplicate.style.display = "flex";
+              }
+            });
+          }
         } else {
           // Final phase
           gsap.set(heroHeader, {
@@ -276,21 +289,23 @@ export default function Section2() {
             opacity: 0,
           });
 
-          // Position duplicates at final positions
-          duplicateIconsRef.current.forEach((duplicate, index) => {
-            if (index < placeHolders.length) {
-              const targetRect = placeHolders[index].getBoundingClientRect();
-              const targetCenterX = targetRect.left + targetRect.width / 2;
-              const targetCenterY = targetRect.top + targetRect.height / 2;
-              const targetPageX = targetCenterX + window.pageXOffset;
-              const targetPageY = targetCenterY + window.pageYOffset;
+          // Position duplicates at final positions using cached positions
+          if (cachedPositionsRef.current) {
+            duplicateIconsRef.current.forEach((duplicate, index) => {
+              if (index < placeHolders.length && cachedPositionsRef.current) {
+                const targetRect = cachedPositionsRef.current.targetRects[index];
+                const targetCenterX = targetRect.left + targetRect.width / 2;
+                const targetCenterY = targetRect.top + targetRect.height / 2;
+                const targetPageX = targetCenterX + window.pageXOffset;
+                const targetPageY = targetCenterY + window.pageYOffset;
 
-              duplicate.style.left = targetPageX - headerIconSize / 2 + "px";
-              duplicate.style.top = targetPageY - headerIconSize / 2 + "px";
-              duplicate.style.opacity = "1";
-              duplicate.style.display = "flex";
-            }
-          });
+                duplicate.style.left = targetPageX - headerIconSize / 2 + "px";
+                duplicate.style.top = targetPageY - headerIconSize / 2 + "px";
+                duplicate.style.opacity = "1";
+                duplicate.style.display = "flex";
+              }
+            });
+          }
         }
 
         // Text animation
