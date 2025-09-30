@@ -91,7 +91,7 @@ export default function Benefits() {
                 BUILT FOR EVERYONE
               </h2>
               <p className="text-[#6B7280] font-nunito text-base lg:text-lg lg:max-w-xl leading-relaxed lg:text-left text-right">
-                Whether you're an investor seeking global real estate exposure or a property owner looking to raise capital, Token8 provides the tools you need.
+                Whether you&apos;re an investor seeking global real estate exposure or a property owner looking to raise capital, Token8 provides the tools you need.
               </p>
             </div>
           </div>

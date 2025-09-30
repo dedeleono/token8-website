@@ -14,7 +14,6 @@ import JoinTheMovement from "@/components/JoinTheMovement";
 import Divider from "@/components/Divider";
 import Footer from "@/components/Footer";
 import FooterDivider from "@/components/FooterDivider";
-import ComingSoon from "@/components/home2";
 import ComingSoonAlt from "@/components/home3";
 import Section2 from "@/components/section2";
 

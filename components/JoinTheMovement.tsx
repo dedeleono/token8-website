@@ -20,7 +20,7 @@ export default function JoinTheMovement() {
                 Markets are going on-chain. Token8 is building the rails.
               </p>
               <p className="text-white/80 font-nunito text-sm lg:text-base leading-relaxed">
-                Don't miss the opportunity to be part of the real estate tokenization revolution. 
+                Don&apos;t miss the opportunity to be part of the real estate tokenization revolution. 
                 Join Token8 today and start building your global real estate portfolio with just $500.
               </p>
             </div>
