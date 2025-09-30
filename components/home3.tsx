@@ -4,13 +4,14 @@ import React, { useState, useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
 import Image from "next/image";
+import { initLenis, getLenis } from "@/lib/lenis";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Download } from "lucide-react";
 import Section2 from "./section2";
+import Lenis from "lenis";
 
 export default function ComingSoonAlt() {
     const [email, setEmail] = useState("");
@@ -33,11 +34,11 @@ export default function ComingSoonAlt() {
 
   const [lenis, setLenis] = useState<Lenis | null>(null);
 
-  // Initialize Lenis smooth scrolling
+  // Initialize global Lenis instance
   useEffect(() => {
-    const lenisInstance = new Lenis();
+    const lenisInstance = initLenis();
     setLenis(lenisInstance);
-    return () => lenisInstance.destroy();
+    // Don't destroy here - let app handle cleanup
   }, []);
 
   useGSAP(() => {
@@ -75,13 +76,7 @@ export default function ComingSoonAlt() {
 
     setIsGSAPReady(true);
 
-    // Connect Lenis with ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
-
-    // use a named function so we can remove it later
-    const tick = (time: number) => lenis.raf(time * 1000);
-    gsap.ticker.add(tick);
-    gsap.ticker.lagSmoothing(0);
+    // Lenis is already connected globally, no need to reconnect
 
     const logoContainer = logoContainerRef.current;
     const logoMask = logoMaskRef.current;
@@ -211,7 +206,6 @@ export default function ComingSoonAlt() {
     });
 
     return () => {
-      gsap.ticker.remove(tick);
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
   }, [lenis]);

@@ -4,8 +4,9 @@ import React, { useState, useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
 import Image from "next/image";
+import { getLenis } from "@/lib/lenis";
+import Lenis from "lenis";
 
 export default function Section2() {
   const heroHeaderRef = useRef<HTMLDivElement>(null);
@@ -23,11 +24,10 @@ export default function Section2() {
     targetRects: DOMRect[];
   } | null>(null);
 
-  // Initialize Lenis smooth scrolling
+  // Get global Lenis instance
   useEffect(() => {
-    const lenisInstance = new Lenis();
+    const lenisInstance = getLenis();
     setLenis(lenisInstance);
-    return () => lenisInstance.destroy();
   }, []);
 
   const cleanupDuplicateIcons = () => {
@@ -45,11 +45,7 @@ export default function Section2() {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // Connect Lenis with ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
-    const tick = (time: number) => lenis.raf(time * 1000);
-    gsap.ticker.add(tick);
-    gsap.ticker.lagSmoothing(0);
+    // Lenis is already connected globally
 
     const heroHeader = heroHeaderRef.current;
     const heroSection = heroSectionRef.current;
@@ -322,7 +318,6 @@ export default function Section2() {
     });
 
     return () => {
-      gsap.ticker.remove(tick);
       cleanupDuplicateIcons();
       scrollTrigger.kill();
     };
