@@ -276,8 +276,8 @@ section {
   }
 
   .hero-section2-header {
-    top: 45%;
-    width: 100%;
+    top: 35%;
+    width: 60%;
   }
 
   .placeholder-icon-section2 {
@@ -311,5 +311,6 @@ section {
 
   .overlay-copy {
     width: 100%;
+    bottom: 25%;
   }
 }
