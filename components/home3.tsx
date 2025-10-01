@@ -1,22 +1,15 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { initLenis, getLenis } from "@/lib/lenis";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Download } from "lucide-react";
-import Section2 from "./section2";
-import Lenis from "lenis";
+import { useLenis } from "@studio-freight/react-lenis";
 
 export default function ComingSoonAlt() {
     const [email, setEmail] = useState("");
     const [isGSAPReady, setIsGSAPReady] = useState(false);
-
     const handleSubmit = (e: React.FormEvent) => {
       e.preventDefault();
       // Handle email submission here
@@ -33,14 +26,7 @@ export default function ComingSoonAlt() {
   const logoMaskRef = useRef<SVGPathElement>(null);
   const lastFrameTimeRef = useRef<number>(0);
 
-  const [lenis, setLenis] = useState<Lenis | null>(null);
-
-  // Initialize global Lenis instance
-  useEffect(() => {
-    const lenisInstance = initLenis();
-    setLenis(lenisInstance);
-    // Don't destroy here - let app handle cleanup
-  }, []);
+  const lenis = useLenis();
 
   useGSAP(() => {
     if (!lenis || typeof window === "undefined") return;
@@ -221,7 +207,7 @@ export default function ComingSoonAlt() {
         }
       });
     };
-  }, [lenis]);
+  }, { dependencies: [lenis] });
 
   return (
     <>

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import LenisWrapper from "@/components/LenisWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -44,7 +45,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${anantason.variable} ${nunitoSans.variable} antialiased font-nunito`}
       >
-        {children}
+        <LenisWrapper>
+          {children}
+        </LenisWrapper>
         <Toaster />
       </body>
     </html>

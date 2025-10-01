@@ -16,6 +16,7 @@ import Footer from "@/components/Footer";
 import FooterDivider from "@/components/FooterDivider";
 import ComingSoonAlt from "@/components/home3";
 import Section2 from "@/components/section2";
+import Section3 from "@/components/section3";
 
 export default function HomePage() {
   return (
@@ -46,6 +47,7 @@ export default function HomePage() {
     <>
       <ComingSoonAlt />
       <Section2 />
+      <Section3 />
     </>
   );
 }

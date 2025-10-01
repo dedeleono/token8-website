@@ -1,12 +1,11 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { getLenis } from "@/lib/lenis";
-import Lenis from "lenis";
+import { useLenis } from "@studio-freight/react-lenis";
 
 export default function Section2() {
   const heroHeaderRef = useRef<HTMLDivElement>(null);
@@ -16,7 +15,6 @@ export default function Section2() {
   const placeHoldersRef = useRef<(HTMLDivElement | null)[]>([]);
   const iconElementsRef = useRef<(HTMLDivElement | null)[]>([]);
   
-  const [lenis, setLenis] = useState<Lenis | null>(null);
   const duplicateIconsRef = useRef<HTMLElement[]>([]);
   const textAnimationOrderRef = useRef<{ segment: HTMLSpanElement; originalIndex: number }[]>([]);
   const cachedPositionsRef = useRef<{
@@ -24,19 +22,8 @@ export default function Section2() {
     targetRects: DOMRect[];
   } | null>(null);
   const lastFrameTimeRef = useRef<number>(0);
-
-  // Get global Lenis instance
-  useEffect(() => {
-    const lenisInstance = getLenis();
-    setLenis(lenisInstance);
-    
-    // Add passive listeners for better mobile performance
-    if (typeof window !== "undefined") {
-      const options = { passive: true };
-      document.addEventListener('touchstart', () => {}, options);
-      document.addEventListener('touchmove', () => {}, options);
-    }
-  }, []);
+  
+  const lenis = useLenis();
 
   const cleanupDuplicateIcons = () => {
     duplicateIconsRef.current.forEach((duplicateIcon) => {
@@ -336,7 +323,7 @@ export default function Section2() {
         scrollTrigger.kill();
       }
     };
-  }, [lenis]);
+  }, { dependencies: [lenis] });
 
   return (
     <>
@@ -350,19 +337,19 @@ export default function Section2() {
 
         <div ref={animatedIconsRef} className="animated-icons-section2">
           <div ref={(el) => { iconElementsRef.current[0] = el; }} className="animated-icon-section2 section2-icon-1">
-            <img src="/file.svg" alt="Icon 1" />
+            <Image src="/file.svg" alt="Icon 1" width={60} height={60}/>
           </div>
           <div ref={(el) => { iconElementsRef.current[1] = el; }} className="animated-icon-section2 section2-icon-2">
-            <img src="/window.svg" alt="Icon 2" />
+            <Image src="/window.svg" alt="Icon 2" width={60} height={60}/>
           </div>
           <div ref={(el) => { iconElementsRef.current[2] = el; }} className="animated-icon-section2 section2-icon-3">
-            <img src="/next.svg" alt="Icon 3" />
+            <Image src="/next.svg" alt="Icon 3" width={60} height={60}/>
           </div>
           <div ref={(el) => { iconElementsRef.current[3] = el; }} className="animated-icon-section2 section2-icon-4">
-            <img src="/vercel.svg" alt="Icon 4" />
+            <Image src="/vercel.svg" alt="Icon 4" width={60} height={60}/>
           </div>
           <div ref={(el) => { iconElementsRef.current[4] = el; }} className="animated-icon-section2 section2-icon-5">
-            <img src="/img/token-green.svg" alt="Icon 5" />
+            <Image src="/img/token-green.svg" alt="Icon 5" width={60} height={60}/>
           </div>
         </div>
         

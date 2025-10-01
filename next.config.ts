@@ -15,7 +15,20 @@ const nextConfig: NextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizeCss: true,
-    optimizePackageImports: ['gsap', 'lenis'],
+    optimizePackageImports: ['gsap', '@studio-freight/react-lenis'],
+  },
+
+  // Webpack configuration to fix .d.ts parsing issues
+  webpack: (config: any, { isServer }: any) => {
+    // Only apply this rule for client-side builds
+    if (!isServer) {
+      config.module.rules.push({
+        test: /\.d\.ts$/,
+        include: /node_modules\/@studio-freight\/react-lenis/,
+        use: 'null-loader',
+      });
+    }
+    return config;
   },
   
   // Headers for better mobile performance
