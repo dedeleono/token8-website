@@ -45,7 +45,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${anantason.variable} ${nunitoSans.variable} antialiased font-nunito`}
       >
-        <LenisWrapper>
+        <LenisWrapper enableSmoothing={false}>
           {children}
         </LenisWrapper>
         <Toaster />

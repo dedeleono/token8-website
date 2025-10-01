@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { useLenis } from "@studio-freight/react-lenis";
+import { useLenisContext } from "./LenisWrapper";
 
 export default function ComingSoonAlt() {
     const [email, setEmail] = useState("");
@@ -26,10 +26,10 @@ export default function ComingSoonAlt() {
   const logoMaskRef = useRef<SVGPathElement>(null);
   const lastFrameTimeRef = useRef<number>(0);
 
-  const lenis = useLenis();
+  const lenis = useLenisContext();
 
   useGSAP(() => {
-    if (!lenis || typeof window === "undefined") return;
+    if (typeof window === "undefined") return;
     
     // Set initial states to ensure elements are visible
     const heroImgContainer = heroImgContainerRef.current;

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext, useContext } from "react";
 import { ReactLenis, useLenis } from "@studio-freight/react-lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -12,51 +12,80 @@ if (typeof window !== "undefined") {
 
 interface LenisWrapperProps {
   children: any;
+  enableSmoothing?: boolean; // Allow conditional smooth scrolling
 }
 
-// GSAP Integration Component
-function GSAPIntegration() {
-  const lenis = useLenis();
+// Create a context to provide lenis instance without hooks dependency
+const LenisContext = createContext<any>(null);
 
+export const useLenisContext = () => useContext(LenisContext);
+
+// Component to capture Lenis instance
+function LenisInstanceProvider({ setInstance, children }: { setInstance: (lenis: any) => void, children: React.ReactNode }) {
+  const lenis = useLenis();
+  
+  useEffect(() => {
+    setInstance(lenis);
+  }, [lenis, setInstance]);
+  
+  return <>{children}</>;
+}
+
+// Simplified GSAP Integration Component
+function GSAPIntegration({ lenis }: { lenis: any }) {
   useEffect(() => {
     if (!lenis) return;
 
-    // Connect Lenis with GSAP ScrollTrigger
-    lenis.on("scroll", ScrollTrigger.update);
-
-    const tick = (time: number) => {
-      lenis.raf(time * 1000);
+    // Only connect Lenis with ScrollTrigger when smooth scrolling is enabled
+    const onScroll = () => {
+      ScrollTrigger.update();
     };
 
-    gsap.ticker.add(tick);
-    gsap.ticker.lagSmoothing(0);
-
-    // Refresh ScrollTrigger after Lenis is ready
-    ScrollTrigger.refresh();
+    lenis.on("scroll", onScroll);
 
     return () => {
-      gsap.ticker.remove(tick);
+      lenis.off("scroll", onScroll);
     };
   }, [lenis]);
 
   return null;
 }
 
-export default function LenisWrapper({ children }: LenisWrapperProps) {
+export default function LenisWrapper({ children, enableSmoothing = false }: LenisWrapperProps) {
   const [isMobile, setIsMobile] = useState(false);
+  const [lenisInstance, setLenisInstance] = useState<any>(null);
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1000);
-      // Refresh ScrollTrigger on resize to recalculate positions
-      ScrollTrigger.refresh();
+      const mobile = window.innerWidth < 1000;
+      setIsMobile(mobile);
+      
+      // Only refresh ScrollTrigger when needed, not on every resize
+      if (!enableSmoothing) {
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 100);
+      }
     };
 
     checkMobile();
     window.addEventListener("resize", checkMobile);
+    window.addEventListener("orientationchange", checkMobile);
 
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("orientationchange", checkMobile);
+    };
+  }, [enableSmoothing]);
+
+  // If smooth scrolling is disabled, just provide context without Lenis
+  if (!enableSmoothing) {
+    return (
+      <LenisContext.Provider value={null}>
+        {children}
+      </LenisContext.Provider>
+    );
+  }
 
   return (
     <ReactLenis
@@ -66,11 +95,16 @@ export default function LenisWrapper({ children }: LenisWrapperProps) {
         easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         smoothWheel: true,
         wheelMultiplier: isMobile ? 0.8 : 1,
-        touchMultiplier: isMobile ? 1.2 : 2,
+        touchMultiplier: isMobile ? 1.5 : 2,
+        infinite: false,
       }}
     >
-      <GSAPIntegration />
-      {children}
+      <LenisInstanceProvider setInstance={setLenisInstance}>
+        <LenisContext.Provider value={lenisInstance}>
+          <GSAPIntegration lenis={lenisInstance} />
+          {children}
+        </LenisContext.Provider>
+      </LenisInstanceProvider>
     </ReactLenis>
   );
 }

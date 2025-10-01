@@ -7,16 +7,16 @@ import { cardsData } from "@/lib/components-data";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLenis } from "@studio-freight/react-lenis";
+import { useLenisContext } from "./LenisWrapper";
 
 export default function Section3() {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
   
-  const lenis = useLenis();
+  const lenis = useLenisContext();
   useGSAP(() => {
-    if (!lenis || typeof window === "undefined") return;
+    if (typeof window === "undefined") return;
 
     const cards = gsap.utils.toArray<HTMLElement>(".card-s3");
     ScrollTrigger.create({

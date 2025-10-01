@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { useLenis } from "@studio-freight/react-lenis";
+import { useLenisContext } from "./LenisWrapper";
 
 export default function Section2() {
   const heroHeaderRef = useRef<HTMLDivElement>(null);
@@ -23,7 +23,7 @@ export default function Section2() {
   } | null>(null);
   const lastFrameTimeRef = useRef<number>(0);
   
-  const lenis = useLenis();
+  const lenis = useLenisContext();
 
   const cleanupDuplicateIcons = () => {
     duplicateIconsRef.current.forEach((duplicateIcon) => {
@@ -36,7 +36,7 @@ export default function Section2() {
   };
 
   useGSAP(() => {
-    if (!lenis || typeof window === "undefined") return;
+    if (typeof window === "undefined") return;
 
     // Lenis is already connected globally
 
